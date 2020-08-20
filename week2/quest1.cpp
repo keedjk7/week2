@@ -40,7 +40,7 @@ int main() {
 		printf("No Data");
 		return 0;
 	}
-	printf("Perimeter = %lf\n", perimeter);
-	printf("Area = %lf", area);
+	printf("Perimeter = %.2lf\n", perimeter);
+	printf("Area = %.2lf", area);
 	return 0;
 }
