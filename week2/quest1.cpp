@@ -14,15 +14,15 @@ int main() {
 	}
 	//Square
 	else if (input == 'S') {
-		float D1, D2;
-		scanf_s("%f%f", &D1, &D2);
+		double D1, D2;
+		scanf_s("%lf%lf", &D1, &D2);
 		area = D1 * D2;
 		perimeter = 2 * (D1 + D2);
 	}
 	//right angled triangle
 	else if (input == 'T') {
-		float H, B;
-		scanf_s("%f%f", &B, &H);
+		double H, B;
+		scanf_s("%lf%lf", &B, &H);
 		area = 0.5 * B * H;
 		perimeter = (H + B) + (sqrt(B * B + H * H));
 	}
@@ -41,6 +41,6 @@ int main() {
 		return 0;
 	}
 	printf("Perimeter = %lf\n", perimeter);
-	printf("Area = %f", area);
+	printf("Area = %lf", area);
 	return 0;
 }
