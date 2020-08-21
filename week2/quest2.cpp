@@ -131,7 +131,7 @@ int main() {
 				if (fourth[i][j] == lottery[k][i]) {
 					C[k]++;
 					if (C[k] == 6) {
-						Price += ticket[k] * 80000;
+						Price += ticket[k] * 20000;
 						C[k] = 0;
 					}
 				}
@@ -152,7 +152,7 @@ int main() {
 					if (fifth[i][j] == lottery[k][i]) {
 						C[k]++;
 						if (C[k] == 6) {
-							Price += ticket[k] * 80000;
+							Price += ticket[k] * 8000;
 							C[k] = 0;
 						}
 					}
