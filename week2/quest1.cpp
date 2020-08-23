@@ -1,46 +1,63 @@
 #include<stdio.h>
-#include<math.h>
 
-int main() {
-	char input;
-	double perimeter, area;
-	scanf_s("%c", &input);
-	//Circle
-	if (input == 'C') {
-		float R;
-		scanf_s("%f", &R);
-		area = 3.141591 * R * R;
-		perimeter = 2 * 3.141592 * R;
-	}
-	//Square
-	else if (input == 'S') {
-		double D1, D2;
-		scanf_s("%lf%lf", &D1, &D2);
-		area = D1 * D2;
-		perimeter = 2 * (D1 + D2);
-	}
-	//right angled triangle
-	else if (input == 'T') {
-		double H, B;
-		scanf_s("%lf%lf", &B, &H);
-		area = 0.5 * B * H;
-		perimeter = (H + B) + (sqrt(B * B + H * H));
-	}
-	//Output
-	if (input == 'S') {
-		printf("Square\n");
-	}
-	else if (input == 'C') {
-		printf("Circle\n");
-	}
-	else if (input == 'T') {
-		printf("Triangle\n");
+
+int WASH(int cloath,bool C) {
+	if (C == false) {
+		printf("Use Washing Machine : %d\n",cloath / 20 + 1);
+		return (30 * (cloath / 20 + 1));
 	}
 	else {
-		printf("No Data");
-		return 0;
+		printf("Use Washing Machine : %d\n", cloath / 20) ;
+		return (30 * (cloath / 20 ));
 	}
-	printf("Perimeter = %.2lf\n", perimeter);
-	printf("Area = %.2lf", area);
+}
+
+int DRY(int cloath,bool C) {
+	if (C == false) {
+		printf("Use Clothes dryer : %d\n", cloath / 30 + 1);
+		return (50 * (cloath / 30 + 1));
+	}
+	else {
+		printf("Use Clothes dryer : %d\n", cloath / 30);
+		return (50 * (cloath / 30));
+	}
+
+}
+
+int main() {
+	char weather;
+	int cloath, money = 0;
+	printf("number of cloathes : ");
+	scanf_s("%d", &cloath);
+	printf("weather today : ");
+	scanf_s(" %c", &weather);
+	if (weather=='S'&&cloath>0) {
+		if (cloath % 20 != 0) {
+			money += WASH(cloath, 0);
+		}
+		else {
+			money += WASH(cloath, 1);
+		}
+		printf("\nAll money is required : %d", money);
+	}
+	else if (weather=='R'&&cloath>0) {
+		if (cloath % 20 != 0) {
+			money+=WASH(cloath,0);
+		}
+		else {
+			money += WASH(cloath, 1);
+		}
+
+		if (cloath % 30 != 0) {
+			money += DRY(cloath, 0);
+		}
+		else {
+			money += WASH(cloath, 1);
+		}
+		printf("\nAll money is required : %d Bath", money);
+	}
+	else{
+		printf("No Cloathes For Washing");
+	}
 	return 0;
 }
